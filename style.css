@@ -67,6 +67,7 @@ h1 {
 
 .nav-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
     margin-top: 3rem;
@@ -113,6 +114,98 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
+.inline-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.notice-box {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.notice-box p:last-child {
+    margin-bottom: 0;
+}
+
+.request-form {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.75);
+    color: var(--text-primary);
+    font: inherit;
+}
+
+.form-field textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.checkbox-row input {
+    margin-top: 0.2rem;
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+}
+
+.status-card {
+    display: none;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    background: rgba(34, 197, 94, 0.08);
+}
+
+.status-card.is-visible {
+    display: block;
+}
+
+.status-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+.status-card textarea {
+    margin-top: 1rem;
+    min-height: 180px;
+}
+
 footer {
     text-align: center;
     margin-top: 6rem;
@@ -134,4 +227,6 @@ footer {
 @media (max-width: 640px) {
     h1 { font-size: 2.5rem; }
     .content-card { padding: 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .btn { width: 100%; }
 }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - VibeFlow</title>
+    <meta name="description" content="Request deletion of your VibeFlow account and associated data.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html"
+                style="text-decoration: none; color: var(--text-secondary); margin-bottom: 2rem; display: inline-block;">←
+                Back to Home</a>
+            <h1>Delete Account</h1>
+            <p class="subtitle">Request deletion of your VibeFlow account and associated data</p>
+        </header>
+
+        <main class="content-card policy-content">
+            <section>
+                <h2>Account Deletion Request</h2>
+                <p>If you signed in to VibeFlow using Google or created account-linked data, you can use this page to
+                    request deletion of your account and associated personal data.</p>
+                <div class="notice-box">
+                    <p><strong>How this works:</strong> Submit the request form below to send an account deletion
+                        request for review and processing.</p>
+                    <p><strong>Support email:</strong> <a href="mailto:mutechs@163.com" class="inline-link">mutechs@163.com</a></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>What Data May Be Deleted</h2>
+                <ul>
+                    <li>Account identifiers such as your Google account email address and Firebase UID</li>
+                    <li>Account-linked preferences or records associated with your VibeFlow account</li>
+                    <li>Support or request records directly related to handling your account deletion request</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Retention Information</h2>
+                <p>We aim to process deletion requests in a reasonable time after verifying the request. Certain
+                    operational logs, security records, or backup data may be retained for up to 30 days before
+                    permanent deletion, where applicable.</p>
+            </section>
+
+            <section>
+                <h2>Submit Your Request</h2>
+                <form class="request-form" id="deleteRequestForm">
+                    <div class="form-field">
+                        <label for="email">Account Email Address</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="requestType">Request Type</label>
+                        <select id="requestType" name="requestType" required>
+                            <option value="Delete my account and associated data">Delete my account and associated data</option>
+                            <option value="Delete account-linked personal data only">Delete account-linked personal data only</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="details">Additional Details (Optional)</label>
+                        <textarea id="details" name="details"
+                            placeholder="Add any extra information that will help us locate your account or data."></textarea>
+                    </div>
+
+                    <label class="checkbox-row" for="confirm">
+                        <input id="confirm" name="confirm" type="checkbox" required>
+                        <span>I confirm that I am the account holder or authorized to request deletion for this account.</span>
+                    </label>
+
+                    <button type="submit" class="btn btn-primary">Submit Deletion Request</button>
+                </form>
+
+                <div class="status-card" id="requestStatus" aria-live="polite">
+                    <h3>Request Submitted</h3>
+                    <p>Your account deletion request has been submitted successfully.</p>
+                    <p>Account email: <strong id="submittedEmail"></strong></p>
+                    <p>Request type: <strong id="submittedType"></strong></p>
+                    <p style="margin-top: 1rem;">We may contact you by email if additional verification is needed.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 VibeFlow. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.getElementById('deleteRequestForm');
+        const statusCard = document.getElementById('requestStatus');
+        const submittedEmail = document.getElementById('submittedEmail');
+        const submittedType = document.getElementById('submittedType');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const requestType = document.getElementById('requestType').value;
+            submittedEmail.textContent = email;
+            submittedType.textContent = requestType;
+            statusCard.classList.add('is-visible');
+            statusCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            form.reset();
+        });
+    </script>
+</body>
+
+</html>
